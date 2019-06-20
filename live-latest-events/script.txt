@@ -3,7 +3,7 @@ import json
 
 event_list = []
 
-@route('/hello/<name>')
+@route('/events')
 def hello(name):
     output = json.dumps(event_list)
     del event_list[:]

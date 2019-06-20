@@ -38,7 +38,7 @@ let g_count = 0;
 
 (function worker() {
  $.ajax({
-    url: 'hello/world', 
+    url: '/events', 
     success: function(data) {
 		let list = jQuery.parseJSON(data);
 		for(let i = 0; i < list.length; i++) {
