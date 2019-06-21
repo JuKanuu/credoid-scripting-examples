@@ -4,12 +4,11 @@ import json
 event_list = []
 
 @route('/events')
-def hello(name):
+def events():
     output = json.dumps(event_list)
     del event_list[:]
     return output
     
-
 @route('/<filename>')
 def server_static(filename):
     f = open(filename, "r")
@@ -21,4 +20,4 @@ def on_init():
 print "Hosting..."
 
 def on_event(event):
-    event_list.append(event.localizedTypeName)
+  event_list.append(event.localizedTypeName)
