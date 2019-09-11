@@ -9,13 +9,13 @@ def events():
     del event_list[:]
     return output
     
-@route('/<filename>')
-def server_static(filename):
-    f = open(filename, "r")
+@route('/')
+def server_static():
+    f = open('index.html', "r")
     return f.read()
 
 def on_init():
-    run(host='localhost', port=8080)
+    run(host='0.0.0.0', port=8002, fast=True)
 
 print "Hosting..."
 
