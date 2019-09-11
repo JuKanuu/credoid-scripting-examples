@@ -28,8 +28,9 @@ def get_inputs():
     response.headers['Cache-Control'] = 'no-cache'
     output = []
     for item in inputList.inputsList:
-        output.append({"id" : item.id,  "inputNumber": item.inputNumber, "moduleName": item.moduleName,
-        "name": item.name, "status": str(item.status)})
+        if item.moduleName == "Mr16In (13)":
+            output.append({"id" : item.id,  "inputNumber": item.inputNumber, "moduleName": item.moduleName,
+            "name": item.name, "status": str(item.status[0])})
     return json.dumps(output)
 
 @get("/<filepath:re:.*\.css>")
@@ -63,4 +64,4 @@ def get_file(filename, root, contentType):
 
 
 def on_init():
-    run(host='localhost', port=8008, fast=True)
+    run(host='0.0.0.0', port=8000, fast=True)
